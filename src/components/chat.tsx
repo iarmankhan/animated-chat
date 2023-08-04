@@ -26,15 +26,15 @@ export function Chat({ messages, currentUser, onSend, onRemove }: ChatProps) {
   const animatingMessages = messages.slice(lastChangedIndex ?? 0);
 
   return (
-    <div className="bg-white rounded-xl p-2 w-full">
+    <div className="bg-white rounded-xl py-2 w-full">
       <div
-        className="flex items-center justify-center text-gray-500 text-sm"
+        className="flex items-center justify-center text-gray-500 text-sm px-2"
         style={{ height: "40px" }}
       >
         <span className="text-gray-500 text-sm">{currentUser.name}</span>
       </div>
 
-      <div className="flex flex-col pb-2 h-[900px] overflow-y-auto">
+      <div className="flex flex-col px-2 mb-2 h-[800px] overflow-y-auto">
         <AnimatePresence>
           {messages.map((message, index) => {
             return (

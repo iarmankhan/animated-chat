@@ -1,9 +1,10 @@
 import { IMessage } from "./types";
 import { useState } from "react";
 import { Chat } from "./components/chat.tsx";
+import { conversation } from "./data.ts";
 
 export function App() {
-  const [messages, setMessages] = useState<IMessage[]>([]);
+  const [messages, setMessages] = useState<IMessage[]>(conversation);
 
   const addMessage = (message: IMessage) => {
     setMessages([...messages, message]);

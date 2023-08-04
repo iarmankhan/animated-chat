@@ -17,9 +17,8 @@ export function ChatMessage({
   right,
 }: ChatMessageProps) {
   return (
-    <motion.button
+    <motion.div
       layout
-      onClick={onClick}
       animate={{ opacity: 1, scale: 1 }}
       initial={{ opacity: 0, scale: 0.7 }}
       exit={{
@@ -38,15 +37,20 @@ export function ChatMessage({
       className={`flex flex-col p-1 ${right ? "items-end" : "items-start"}`}
       tabIndex={-1}
     >
-      <div
-        className={`break-all px-4 py-2 rounded-xl max-w-[70%] text-left ${
+      <button
+        tabIndex={-1}
+        onClick={onClick}
+        className={`break-words px-4 py-2 rounded-xl max-w-[70%] text-left ${
           right
             ? "bg-blue-500 text-white ml-auto"
             : "bg-gray-200 text-gray-800 mr-auto"
         }`}
+        style={{
+          WebkitTapHighlightColor: "transparent",
+        }}
       >
         {message.text}
-      </div>
-    </motion.button>
+      </button>
+    </motion.div>
   );
 }
